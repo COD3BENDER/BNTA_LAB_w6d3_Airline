@@ -3,6 +3,7 @@ package com.bnta.labwk6d3airline.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -34,6 +35,7 @@ public class Passenger {
     public Passenger(String name, String emailAddress){
         this.name = name;
         this.emailAddress = emailAddress;
+        this.flights = new ArrayList<>();
 
     }
 
