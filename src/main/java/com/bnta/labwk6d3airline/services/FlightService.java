@@ -29,7 +29,8 @@ public class FlightService {
                 flightDTO.getDepartureDate(),
                 flightDTO.getDepartureTime()
         );
-        return  flight; // return and store the flight in database
+
+        return  flightRepository.save(flight); // return and store the new flight in database
     }
 
 
