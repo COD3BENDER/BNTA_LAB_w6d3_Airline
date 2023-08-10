@@ -38,12 +38,24 @@ public class FlightController {
         return new ResponseEntity(flightService.findFlight(id),HttpStatus.FOUND);
     }
 
+    // Display all by Destination
+    @GetMapping(value = "/{destination}")
+    public ResponseEntity<List<Flight>> getAllChocolatesAndFilters( @RequestParam(required = false, name = "flight") @PathVariable String destination){
+//        GET /chocolates/destination  -- Need to Test
+        if(destination != null){
+            return new ResponseEntity<>(flightService.findAllByDestination(destination), HttpStatus.OK);
+        }
+//        GET /flights
+        return new ResponseEntity<>(flightService.findAllFlights(), HttpStatus.OK);
+    }
+
     // Add details of a new flight
     @PostMapping
     public ResponseEntity<Flight> postFlight(@RequestBody FlightDTO flightDTO){
         Flight addFlight = flightService.addFlightDetails(flightDTO);
         return new ResponseEntity<>(addFlight, HttpStatus.CREATED);
     }
+
     // add passenger to flight
     @PutMapping(value = "/{flightId}/{passengerId}")
     public ResponseEntity<Flight> addPassenger(@PathVariable  Long passengerId, @PathVariable Long flightId){
@@ -57,15 +69,5 @@ public class FlightController {
         flightService.cancelFlight(id);
         return new ResponseEntity<>(id,HttpStatus.OK);
     }
-
-
-
-
-
-
-
-
-
-
 
 }

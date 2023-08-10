@@ -33,6 +33,11 @@ public class FlightService {
         return flightRepository.save(flight); // return and store the new flight in database
     }
 
+    // find by destination using derived query
+    public List<Flight> findAllByDestination(String destination){
+        return flightRepository.findByDestination(destination);
+    }
+
 
     // display all available flights
     public List<Flight> findAllFlights() {
@@ -54,9 +59,10 @@ public class FlightService {
         Flight flightToBook = flightRepository.findById(flightId).get(); // get the flight
 
         Passenger passenger = passengerRepository.findById(passengerId).get();
-        flightToBook.addPassengers(passenger);
-        flightRepository.save(flightToBook);
-
+        if(flightToBook.getPassengers().size()<flightToBook.getCapacity()){ // add passenger only if less than capacity
+            flightToBook.addPassengers(passenger);
+            flightRepository.save(flightToBook);
+        }
         return flightToBook;
     }
 }
