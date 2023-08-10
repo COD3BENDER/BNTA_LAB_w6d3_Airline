@@ -1,4 +1,4 @@
-# Lab - Airline API
+# Lab - Airline API - Tarek Ahmed
 
 In this exercise we will revisit the airline booking system, but this time we will do things slightly differently. Last time we built a CLI and managed the details of passengers and flights from the terminal but in the real world an airline wouldn't manage things this way. Instead they would have an API with routes available to make bookings through.
 
@@ -37,5 +37,5 @@ A `DataLoader` class would be helpful to seed the database with some flights and
 
 - Add functionality to filter flights by destination
 - Prevent a passenger being booked on a flight which is full
-- If you aren't already doing so, refactor the `departureDate` and `departureTime` properties to use one of the available datatypes for handling dates and times.
-- Return `ResponseEntity` objects with appropriate status codes if the user attempts an invalid action, eg. return a `400` error if filtering by a destination which doesn't exist
+- If you aren't already doing so, refactor the `departureDate` and `departureTime` properties to use one of the available datatypes for handling dates and times. **_— need to do_**
+- Return `ResponseEntity` objects with appropriate status codes if the user attempts an invalid action, eg. return a `400` error if filtering by a destination which doesn't exist **_- need to do_**
