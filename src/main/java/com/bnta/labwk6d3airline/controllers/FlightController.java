@@ -44,7 +44,7 @@ public class FlightController {
         Flight addFlight = flightService.addFlightDetails(flightDTO);
         return new ResponseEntity<>(addFlight, HttpStatus.CREATED);
     }
-
+    // add passenger to flight
     @PutMapping(value = "/{flightId}/{passengerId}")
     public ResponseEntity<Flight> addPassenger(@PathVariable  Long passengerId, @PathVariable Long flightId){
         Flight flight = flightService.bookAPassenger(flightId,passengerId);
