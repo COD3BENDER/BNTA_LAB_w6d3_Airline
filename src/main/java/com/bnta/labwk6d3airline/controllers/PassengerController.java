@@ -1,6 +1,7 @@
 package com.bnta.labwk6d3airline.controllers;
 
 import com.bnta.labwk6d3airline.models.Passenger;
+import com.bnta.labwk6d3airline.models.PassengerDTO;
 import com.bnta.labwk6d3airline.repositories.PassengerRepository;
 import com.bnta.labwk6d3airline.services.PassengerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +31,10 @@ public class PassengerController {
         return new ResponseEntity(passengerService.findPassenger(id),HttpStatus.FOUND);
     }
 
-    // add passengers
+    // add new passenger
     @PostMapping
-    public ResponseEntity<List<Passenger>> postPassenger(@RequestBody Passenger passenger){
-        passengerService.savePassenger(passenger);
-        return new ResponseEntity(passengerService.displayAllPassengers(),HttpStatus.CREATED);
+    public ResponseEntity <Passenger> postPassenger(@RequestBody PassengerDTO passengerDTO){
+      Passenger passenger=  passengerService.addNewPassenger(passengerDTO);
+        return new ResponseEntity<>(passenger,HttpStatus.CREATED);
     }
 }

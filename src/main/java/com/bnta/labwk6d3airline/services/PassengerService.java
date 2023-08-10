@@ -1,6 +1,7 @@
 package com.bnta.labwk6d3airline.services;
 
 import com.bnta.labwk6d3airline.models.Passenger;
+import com.bnta.labwk6d3airline.models.PassengerDTO;
 import com.bnta.labwk6d3airline.repositories.PassengerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,9 +14,14 @@ public class PassengerService {
     @Autowired
     PassengerRepository passengerRepository;
 
-    // add new passenger
-    public void savePassenger(Passenger passenger){
-        passengerRepository.save(passenger); // repository method via extended JPA
+    // add New passenger
+    public Passenger addNewPassenger(PassengerDTO passengerDTO) {
+        // this creates the flight with no passengers
+        Passenger passenger = new Passenger(
+                passengerDTO.getName(),
+                passengerDTO.getEmailAddress()
+        );
+        return passengerRepository.save(passenger);
     }
 
     // display details of all passengers
