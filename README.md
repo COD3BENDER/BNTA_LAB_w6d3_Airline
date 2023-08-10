@@ -25,10 +25,10 @@ Your API must include routes enabling the user to:
 - Add details of a new flight
 - Display all available flights
 - Display details of a specific flight
-- Add a new passenger
-- Display details of all passengers
-- Display details of a specific passenger
-- Book a passenger on to a flight
+- Add a new passenger 
+- Display details of all passengers 
+- Display details of a specific passenger 
+- Book a passenger on to a flight 
 - Cancel a flight
 
 A `DataLoader` class would be helpful to seed the database with some flights and passengers.
